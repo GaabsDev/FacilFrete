@@ -1,0 +1,77 @@
+<div class="row mb-2">
+  
+  <div class="col-12 text-center">
+    <div class="h2 mb-4 mt-4 text-info">Easy Frete</div>
+  </div>
+  <hr class="mb-2">
+  <div class="col-12 mb-2">
+    
+    <div class="row">
+      <div class="form-group col-4">
+        <label class="required">Cep:</label>
+        <div class="input-group mb-2 mr-sm-2">
+          <input type="text" class="form-control" [dropSpecialCharacters]="false" mask="00000-000"
+            [(ngModel)]="model.CEP" [ngModelOptions]="{standalone: true}" (keyup.enter)="getEndereco()">
+          <div class="input-group-prepend">
+            <button class="input-group-text" (click)="getEndereco()">Buscar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group col-3">
+        <label>Cidade:</label>
+        <input type="text" class="form-control" [(ngModel)]="model.Cidade" [ngModelOptions]="{standalone: true}">
+      </div>
+
+      <div class="form-group col-5">
+        <label>Logradouro:</label>
+        <input type="text" class="form-control" [(ngModel)]="model.Logradouro" [ngModelOptions]="{standalone: true}">
+      </div>
+
+      <div class="form-group col-2">
+        <label>Numero:</label>
+        <input type="number" class="form-control" [(ngModel)]="model.Numero" [ngModelOptions]="{standalone: true}">
+      </div>
+      <div class="form-group col-3">
+        <label>Bairro:</label>
+        <input type="text" class="form-control" [(ngModel)]="model.Bairro" [ngModelOptions]="{standalone: true}">
+      </div>
+
+      <div class="form-group col-3">
+        <label>UF:</label>
+        <input type="text" maxlength="2" class="form-control" [(ngModel)]="model.Uf"
+          [ngModelOptions]="{standalone: true}">
+      </div>
+
+      <div class="form-group col-4">
+        <label>Complemento:</label>
+        <input type="text" class="form-control" [(ngModel)]="model.Complemento" [ngModelOptions]="{standalone: true}">
+      </div>
+      <div class="form-group col-12 text-right">
+        <button class="btn btn-primary" [disabled]="!enderecoIsValid()" (click)="getPreco()">
+          Verificar Frete
+        </button>
+      </div>
+    </div>
+
+    <div class="col-12 table-responsive mt-2" *ngIf="precosFrete">
+          <table class="table table-striped table-bordered">
+            <thead>
+              <th>Cod. Loja</th>
+              <th>Preço</th>
+              <th>Distância</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let preco of precosFrete">
+                <td>{{preco.Descricao}}</td>
+                <td>R${{preco.Preco}}</td>
+                <td> {{preco.Distancia}}m</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+
+  <br />
+  <br />
+
+</div>

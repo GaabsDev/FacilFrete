@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  easyFreteapp.presentation.ui:
+    environment:
+      - HOST=198.71.225.145
+      - PORT=1433
+      - USER=ph21216321451
+      - PASS=User@2020
+      - DATABASE_NAME=vouaprender
+      - SERVICE_CEP=https://viacep.com.br/ws/{0}/json/
+    ports:
+      - "5000:80"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro

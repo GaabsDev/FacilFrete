@@ -1,0 +1,54 @@
+<div style="height: 100%;width: 100%;position: absolute;">
+  <div id="map"></div>
+  <div class="sidepanel">
+    <div class="container-fluid">
+      <span class="sidepanel-title">Cadastrar pontos de entrega</span>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="lj">Lojas</label>
+              <select class="form-control" [(ngModel)]="selectedCd" id="lj">
+                <option selected value="1">Loja 52</option>
+                <option value="2">Loja 13</option>
+              </select>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="tipoDraw">Tipo desenho</label>
+              <select class="form-control" (change)="addInteraction()" [(ngModel)]="tipoDraw" id="tipoDraw">
+                <option selected value="Circle">Circulo</option>
+                <option value="Polygon">Poligono</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col" style="text-align: center">
+            <button *ngIf="arrayRadius.length>0" class="btn btn-primary" [disabled]="!isFormValid"
+              (click)="save()" color="accent">Salvar</button>
+            <button class="btn btn-primary" *ngIf="arrayRadius.length<=0" (click)="addInteraction()"
+              color="accent">Adicionar raios de preço</button>
+          </div>
+        </div>
+        <div style="overflow-y:auto; max-height:600px; margin-top:15px;" class="row">
+          <div *ngFor="let radius of arrayRadius" class="row card" style="width: 100%;">
+            <div class="card-header">
+              {{radius.Descricao }} - Raio: {{radius.Raio}} m
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div class="form-group">
+                  <label class="label-preco" for="name">Preço</label>
+                  <input type="number" [(ngModel)]="radius.Preco" class="form-control" id="name"
+                    placeholder="Preço frete, ex: R$3,50">
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

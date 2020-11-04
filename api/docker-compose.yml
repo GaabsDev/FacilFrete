@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  easyFreteapp.presentation.ui:
+    image: ${DOCKER_REGISTRY-}easyfreteapppresentationui
+    build:
+     context: .
+     dockerfile: Source/Presentation/EasyFreteApp.Presentation.UI/Dockerfile

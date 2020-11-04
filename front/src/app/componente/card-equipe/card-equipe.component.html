@@ -1,0 +1,11 @@
+<div class="row m-1  border border-info rounded">
+    <div class="col-2">
+        <input class="mt-3 largerCheckbox"
+            type="checkbox"
+            (click)="clickSelect($event, elemento)">
+    </div>
+    <div class="col-10">
+        <div class="h5">{{elemento.Nome}}</div>
+        <div class="h6">{{elemento.Sigla}}</div>
+    </div>
+</div>

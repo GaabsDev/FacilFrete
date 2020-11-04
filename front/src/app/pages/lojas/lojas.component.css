@@ -1,0 +1,30 @@
+#map {
+  height: 100%;
+  width: 100%;
+  width: 70%;
+  float: left;
+}
+
+.sidepanel {
+  background: #063463;
+  width: 30%;
+  height: 100%;
+  float: left;
+}
+
+.sidepanel-title {
+  width: 100%;
+  font-size: 2em;
+  padding: 10px;
+  color: #ffffff;
+  display: block;
+  text-align: center;
+}
+
+label {
+  color: white;
+}
+
+.label-preco{
+  color: black;
+}
